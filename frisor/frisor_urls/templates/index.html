@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+
+{% block content %}
+<div class="container">
+<h2>Interesting urls</h2>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>URL</th>
+            <th>Creator</th>
+            <th>Publish date</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for url in url_list %}
+            <tr>
+                <td><a target="_blank" href="{{url.url}}">{{url.title}}</a></td>
+                <td>{{url.creator}}</td>
+                <td>{{url.publish_date}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<form role="form" method="POST">
+    <legend>Shorten your url!</legend>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+{% for message in messages %}
+    <div class="{{ message|bootstrap_message_classes }} alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
+        {{ message|safe }}
+    </div>
+{% endfor %}
+
+{% endblock content %}
