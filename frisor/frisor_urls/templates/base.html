@@ -1,0 +1,21 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<html>
+    <head>
+        <title>Frisor</title>
+    </head>
+
+    <body>
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+        {% block content %}
+        {% endblock content %}
+      </div>
+      <div class="col-md-3">
+      </div>
+    </body>
+</html>
