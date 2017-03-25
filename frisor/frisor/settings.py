@@ -135,3 +135,7 @@ LOGGING = {
         }
     }
 }
+
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
