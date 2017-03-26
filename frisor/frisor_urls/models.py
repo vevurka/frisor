@@ -11,3 +11,4 @@ class Url(models.Model):
     def create(cls, url="", title="", nick=""):
         url = cls(title=title, url=url, nick=nick)
         return url
+
