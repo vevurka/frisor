@@ -23,7 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap3'
+    'tagulous',
+    'bootstrap3',
+
 ]
 
 MIDDLEWARE = [
@@ -93,12 +95,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-STATIC_URL = '/static/'
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -136,6 +132,26 @@ LOGGING = {
     }
 }
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT = '/tmp/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frisor/assets'),
+]
+
+# tagulous serialization
+SERIALIZATION_MODULES = {
+    'xml':    'tagulous.serializers.xml_serializer',
+    'json':   'tagulous.serializers.json',
+    'python': 'tagulous.serializers.python',
+    'yaml':   'tagulous.serializers.pyyaml',
+}
+
+# django-bootstrap3 settings
 BOOTSTRAP3 = {
     'include_jquery': True,
+    'jquery_url': '/static/js/jquery.js'
 }
