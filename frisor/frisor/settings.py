@@ -156,3 +156,5 @@ BOOTSTRAP3 = {
     'include_jquery': True,
     'jquery_url': '/static/js/jquery.js'
 }
+
+SECRET_KEY = ""
