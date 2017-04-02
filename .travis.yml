@@ -18,6 +18,7 @@ install:
 before_install:
   - export DJANGO_SETTINGS_MODULE=frisor.settings
   - export SECRET_KEY='This is secret'
+  - export DEBUG=True
 
 script:
   - cd frisor
