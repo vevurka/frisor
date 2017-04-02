@@ -4,6 +4,9 @@ sudo: false
 python:
   - "3.5"
 
+env:
+  - DJANGO=1.10.5
+
 branches:
   only:
     - master
@@ -11,6 +14,9 @@ branches:
 install:
   - pip install tox coverage codecov
   - pip install -r requirements.txt
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=frisor.frisor.settings
 
 script:
   - py.test
