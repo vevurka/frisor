@@ -10,11 +10,13 @@ class UrlViewTest(TestCase):
         title = "short title"
         nick = "short nick"
         url = "http://valid.se"
+        tags = 'tag1, tag2'
 
         data = {
             'url': url,
             'title': title,
             'nick': nick,
+            'tags': tags
         }
 
         resp = self.client.post(UrlView.success_url, data=data, follow=True)
@@ -27,11 +29,13 @@ class UrlViewTest(TestCase):
         title = "short title"
         nick = "short nick"
         url = "invalid"
+        tags = 'tag1, tag2'
 
         data = {
             'url': url,
             'title': title,
-            'nick': nick
+            'nick': nick,
+            'tags': tags
         }
 
         resp = self.client.post(UrlView.success_url, data=data)
