@@ -1,3 +1,5 @@
+![alt tag](https://travis-ci.org/vevurka/frisor.svg?branch=master)
+
 # Frisor 
 
 Frisor application is a box for urls.
