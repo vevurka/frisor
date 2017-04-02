@@ -19,7 +19,8 @@ before_install:
   - export DJANGO_SETTINGS_MODULE=frisor.frisor.settings
 
 script:
-  - py.test
+  - cd frisor
+  - python manage.py test
 
 
 after_success:
