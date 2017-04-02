@@ -1,0 +1,21 @@
+language: python
+sudo: false
+
+python:
+  - "3.5"
+
+branches:
+  only:
+    - master
+
+install:
+  - pip install tox coverage codecov
+  - pip install -r requirements.txt
+
+script:
+  - py.test
+
+
+after_success:
+  - coverage combine
+  - codecov
