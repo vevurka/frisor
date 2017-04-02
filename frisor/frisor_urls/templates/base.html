@@ -2,9 +2,16 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
+{% load static %}
 
 <html>
     <head>
+        <link rel="stylesheet" href='{% static "/tagulous/lib/select2-3/select2.css" %}'/>
+        <link rel="stylesheet" href='{% static "/css/select2-bootstrap.css" %}'/>
+        <script type='text/javascript' src='{% static "/js/jquery.js" %}'></script>
+        <script type='text/javascript' src='{% static "/tagulous/tagulous.js" %}'></script>
+        <script type='text/javascript' src='{% static "/tagulous/lib/select2-3/select2.min.js" %}'></script>
+        <script type='text/javascript' src='{% static "/tagulous/adaptor/select2-3.js"%}'></script>
         <title>Frisor</title>
     </head>
 
