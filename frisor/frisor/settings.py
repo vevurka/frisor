@@ -149,6 +149,7 @@ SERIALIZATION_MODULES = {
     'python': 'tagulous.serializers.python',
     'yaml':   'tagulous.serializers.pyyaml',
 }
+TAGULOUS_NAME_MAX_LENGTH = 128
 
 # django-bootstrap3 settings
 BOOTSTRAP3 = {
