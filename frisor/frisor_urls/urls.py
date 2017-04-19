@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^tags/autocomplete/', tagulous.views.autocomplete,
         {'tag_model': Tags}, name='url_tags_autocomplete'),
     url(r'^$', UrlView.as_view()),
+    url(r'^add_url', UrlView.as_view())
 ]

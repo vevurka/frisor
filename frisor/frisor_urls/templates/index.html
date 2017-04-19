@@ -2,45 +2,31 @@
 
 {% load bootstrap3 %}
 
-
 {% block content %}
+  {% include "urls_form.html" %}
 
-    {% for message in messages %}
-        <div class="{{ message|bootstrap_message_classes }} alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
-            {{ message|safe }}
-        </div>
-    {% endfor %}
-    <form role="form" method="POST">
-        <legend>Put interesting url here:</legend>
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-
-
-<h3>Interesting urls:</h3>
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>URL</th>
-        <th>Nick</th>
-        <th>Publish date</th>
-        <th>Tags</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for url in url_list %}
+  <h3>Interesting urls:</h3>
+  <table class="table table-striped">
+      <thead>
         <tr>
-            <td><a target="_blank" href="{{url.url}}">{{url.title}}</a></td>
-            <td>{{url.nick}}</td>
-            <td>{{url.publish_date}}</td>
-            <td>{{url.tags}}</td>
+          <th>URL</th>
+          <th>Nick</th>
+          <th>Publish date</th>
+          <th>Tags</th>
         </tr>
-    {% endfor %}
-    </tbody>
-</table>
+      </thead>
+      <tbody>
+      {% for url in url_list %}
+          <tr>
+              <td><a target="_blank" href="{{url.url}}">{{url.title}}</a></td>
+              <td>{{url.nick}}</td>
+              <td>{{url.publish_date}}</td>
+              <td>{{url.tags}}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+
+  {% bootstrap_pagination url_list %}
 
 {% endblock content %}
