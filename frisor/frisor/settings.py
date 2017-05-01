@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tagulous',
     'bootstrap3',
-
+    'django_filters',
 ]
 
 MIDDLEWARE = [
