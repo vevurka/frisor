@@ -1,6 +1,8 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django_filters import STRICTNESS
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -156,3 +158,14 @@ BOOTSTRAP3 = {
     'include_jquery': True,
     'jquery_url': '/static/js/jquery.js'
 }
+
+# django-filter settings
+FILTERS_DISABLE_HELP_TEXT = True
+FILTERS_HELP_TEXT_FILTER = False
+FILTERS_HELP_TEXT_EXCLUDE = True
+
+FILTERS_EMPTY_CHOICE_LABEL = None
+FILTERS_NULL_CHOICE_LABEL = None
+FILTERS_NULL_CHOICE_VALUE = None
+
+FILTERS_STRICTNESS = STRICTNESS.IGNORE

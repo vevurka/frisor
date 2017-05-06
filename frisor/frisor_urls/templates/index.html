@@ -3,6 +3,14 @@
 {% load bootstrap3 %}
 
 {% block content %}
+    {% for message in messages %}
+        <div class="{{ message|bootstrap_message_classes }} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
+            {{ message|safe }}
+        </div>
+    {% endfor %}
+
+
   <h3>Interesting urls:</h3>
     <form action="" method="get">
         <legend>Filtering</legend>
@@ -15,7 +23,7 @@
   <table class="table table-striped">
       <thead>
         <tr>
-          <th>URL</th>
+          <th>Title</th>
           <th>Nick</th>
           <th>Publish date</th>
           <th>Tags</th>
@@ -34,5 +42,4 @@
   </table>
 
   {% bootstrap_pagination url_list extra=request.GET.urlencode %}
-  {% include "urls_form.html" %}
 {% endblock content %}

@@ -1,16 +1,20 @@
+{% extends 'base.html' %}
+
 {% load bootstrap3 %}
 
-{% for message in messages %}
-    <div class="{{ message|bootstrap_message_classes }} alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
-        {{ message|safe }}
-    </div>
-{% endfor %}
-<form role="form" method="POST" action="/add_url">
-    <legend>Put interesting url here:</legend>
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+{% block content %}
+    {% for message in messages %}
+        <div class="{{ message|bootstrap_message_classes }} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
+            {{ message|safe }}
+        </div>
+    {% endfor %}
+    <form role="form" method="POST" action="/add_url">
+        <legend>Put interesting url here:</legend>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+{% endblock content %}

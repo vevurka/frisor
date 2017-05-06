@@ -1,9 +1,14 @@
-from django_filters import FilterSet
+from django_filters import FilterSet, ModelChoiceFilter
 
-from .models import Url
+from .models import Url, Tags
 
 
 class UrlFilter(FilterSet):
+    tags__name = ModelChoiceFilter(queryset=Tags.objects)
+
     class Meta:
         model = Url
-        fields = ['url', 'title', 'tags__name']
+        fields = {
+            'url': ['contains'],
+            'title': ['contains'],
+        }
