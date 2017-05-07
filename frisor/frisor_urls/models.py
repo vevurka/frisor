@@ -17,6 +17,6 @@ class Url(models.Model):
     tags = tagulous_models.TagField(Tags)
 
     @classmethod
-    def create(cls, url="", title="", nick=""):
-        url = cls(title=title, url=url, nick=nick)
+    def create(cls, url="", title="", nick="", tags=None):
+        url = cls(title=title, url=url, nick=nick, tags=None)
         return url

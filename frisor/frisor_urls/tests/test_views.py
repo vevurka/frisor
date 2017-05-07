@@ -1,10 +1,13 @@
 from django.test import TestCase
 
-from frisor_urls.views import UrlView
+from frisor_urls.views import AddUrlView
 from frisor_urls.models import Url
 
 
-class UrlViewTest(TestCase):
+class AddUrlViewTest(TestCase):
+
+    def setUp(self):
+        self.url_add_url = '/add_url'
 
     def test_valid_url_form_is_saved_in_database(self):
         title = "short title"
@@ -19,7 +22,7 @@ class UrlViewTest(TestCase):
             'tags': tags
         }
 
-        resp = self.client.post(UrlView.success_url, data=data, follow=True)
+        resp = self.client.post(self.url_add_url, data=data, follow=True)
 
         db_url = Url.objects.get()
         self.assertIn("Your new url: " + url, resp.content.decode('utf-8'))
@@ -38,7 +41,7 @@ class UrlViewTest(TestCase):
             'tags': tags
         }
 
-        resp = self.client.post(UrlView.success_url, data=data)
+        resp = self.client.post(self.url_add_url, data=data)
         db_url = Url.objects.all()
         self.assertIn("Enter a valid URL.", resp.content.decode('utf-8'))
         self.assertFalse(db_url)
