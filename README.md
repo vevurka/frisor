@@ -1,4 +1,5 @@
-![alt tag](https://travis-ci.org/vevurka/frisor.svg?branch=master)
+[![Build Status](https://travis-ci.org/vevurka/frisor.svg?branch=master)](https://travis-ci.org/vevurka/frisor)
+[![Coverage Status](https://coveralls.io/repos/github/vevurka/frisor/badge.svg?branch=master)](https://coveralls.io/github/vevurka/frisor?branch=master)
 
 # Frisor 
 
