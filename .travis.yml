@@ -12,7 +12,8 @@ branches:
     - master
 
 install:
-  - pip install tox coverage codecov
+  - pip install coverage
+  - pip install coveralls
   - pip install -r requirements.txt
 
 before_install:
@@ -22,9 +23,9 @@ before_install:
 
 script:
   - cd frisor
-  - python manage.py test
+  -  coverage run --source=frisor_urls,frisor manage.py test
 
 
 after_success:
-  - coverage combine
-  - codecov
+  - coverage report
+  - coveralls

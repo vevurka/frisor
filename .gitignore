@@ -12,5 +12,7 @@ production_settings
 # IDE
 .idea
 
-
+# coverage
+.coverage
+htmlconv
 
